@@ -13,13 +13,13 @@ CREATE TABLE Feitos (
     CONSTRAINT fk_feitos FOREIGN KEY (id_heroi) REFERENCES Herois (id_heroi)
 );
 
-CREATE TABLE Comum (
+CREATE TABLE Comuns (
 	id_heroi int PRIMARY KEY,
     especialidade VARCHAR(80),
     FOREIGN KEY (id_heroi) REFERENCES Herois(id_heroi) 
 );
 
-CREATE TABLE Poder (
+CREATE TABLE Poderes (
 	grau ENUM('1', '2', '3', '4', '5'),
     titulo VARCHAR(80) PRIMARY KEY,
     descricao VARCHAR(280), 
@@ -46,18 +46,18 @@ CREATE TABLE HeroiEquipe (
     FOREIGN KEY (cod_equipe) REFERENCES Equipes(codigo)
 );
 
-CREATE TABLE Base_De_Operacao (
+CREATE TABLE Bases_De_Operacao (
     numero int AUTO_INCREMENT,
     cod_equipe int,
     PRIMARY KEY (numero, cod_equipe),
     FOREIGN KEY (cod_equipe) REFERENCES Equipes(codigo)
 );
 
-CREATE TABLE Vilao (
+CREATE TABLE Viloes (
 	codinome VARCHAR(20) PRIMARY KEY
 );
 
-Create TABLE Localizacao(
+Create TABLE Localizacoes(
 	latitude DECIMAL(8,6),
     longitude DECIMAL(9,6),
     cod_equipe int UNIQUE,
@@ -65,7 +65,7 @@ Create TABLE Localizacao(
     FOREIGN KEY (cod_equipe) REFERENCES Equipes(codigo)
 );
 
-CREATE TABLE Combate(
+CREATE TABLE Combates(
 	latitude DECIMAL(8,6),
     longitude Decimal(9,6),
     id_heroi int,
@@ -73,12 +73,11 @@ CREATE TABLE Combate(
     dia date,
     PRIMARY KEY (id_heroi, cod_vilao, dia, latitude, longitude),
     FOREIGN KEY (id_heroi) REFERENCES Herois(id_heroi),
-    FOREIGN KEY (cod_vilao) REFERENCES Vilao(codinome),
-    FOREIGN KEY (latitude, longitude) REFERENCES Localizacao(latitude, longitude)
+    FOREIGN KEY (cod_vilao) REFERENCES Viloes(codinome),
+    FOREIGN KEY (latitude, longitude) REFERENCES Localizacoes(latitude, longitude)
 );
 
-CREATE TABLE Vitima(
-    
+CREATE TABLE Vitimas(
     latitude DECIMAL(8,6) NOT NULL,
     longitude Decimal(9,6) NOT NULL,
     id_heroi int NOT NULL,
@@ -86,5 +85,5 @@ CREATE TABLE Vitima(
     dia date NOT NULL,
     cpf varchar(12) PRIMARY KEY,
     FOREIGN KEY (id_heroi, cod_vilao, dia, latitude, longitude) 
-    REFERENCES Combate(id_heroi, cod_vilao, dia, latitude, longitude)
+    REFERENCES Combates(id_heroi, cod_vilao, dia, latitude, longitude)
 );
