@@ -87,3 +87,50 @@ CREATE TABLE Vitimas(
     FOREIGN KEY (id_heroi, cod_vilao, dia, latitude, longitude) 
     REFERENCES Combates(id_heroi, cod_vilao, dia, latitude, longitude)
 );
+
+INSERT INTO Herois(nome) VALUES("Iron Man");
+INSERT INTO Herois(nome) VALUES("Captain America");
+INSERT INTO Herois(nome) VALUES("Hulk");
+INSERT INTO Herois(nome) VALUES("hawkeye");
+INSERT INTO Herois(nome) VALUES("Black Widow");
+INSERT INTO Herois(nome) VALUES("Thor");
+INSERT INTO Herois(nome) VALUES("Star Lord");
+INSERT INTO Herois(nome) VALUES("Gamora");
+INSERT INTO Herois(nome) VALUES("Groot");
+INSERT INTO Herois(nome) VALUES("Drax");
+INSERT INTO Herois(nome) VALUES("Rocket Racoon");
+INSERT INTO Herois(nome, mentor) VALUES("Spider Man", 1);
+INSERT INTO Herois(nome, mentor) VALUES("Winter Soldier", 2);
+INSERT INTO Herois(nome, mentor) VALUES("Falcon", 2);
+
+
+INSERT INTO Feitos(id_heroi, feitos_realizados) VALUES(2, "Veterano da Segunda Guerra Mundial");
+INSERT INTO Feitos(id_heroi, feitos_realizados) VALUES(1, "Lutou contra a invasão alienigena de Nova York em 2012");
+INSERT INTO Feitos(id_heroi, feitos_realizados) VALUES(2, "Lutou contra a invasão alienigena de Nova York em 2012");
+INSERT INTO Feitos(id_heroi, feitos_realizados) VALUES(3, "Lutou contra a invasão alienigena de Nova York em 2012");
+INSERT INTO Feitos(id_heroi, feitos_realizados) VALUES(4, "Lutou contra a invasão alienigena de Nova York em 2012");
+INSERT INTO Feitos(id_heroi, feitos_realizados) VALUES(5, "Lutou contra a invasão alienigena de Nova York em 2012");
+INSERT INTO Feitos(id_heroi, feitos_realizados) VALUES(6, "Lutou contra a invasão alienigena de Nova York em 2012");
+
+
+INSERT INTO Equipes(nome) VALUES ("Avengers");
+INSERT INTO Equipes(nome) VALUES ("Guardians Of The Galaxy");
+
+
+INSERT INTO HeroiEquipe(id_heroi, cod_equipe) VALUES(1,1);
+INSERT INTO HeroiEquipe(id_heroi, cod_equipe) VALUES(2,1);
+INSERT INTO HeroiEquipe(id_heroi, cod_equipe) VALUES(3,1);
+INSERT INTO HeroiEquipe(id_heroi, cod_equipe) VALUES(4,1);
+INSERT INTO HeroiEquipe(id_heroi, cod_equipe) VALUES(5,1);
+INSERT INTO HeroiEquipe(id_heroi, cod_equipe) VALUES(6,1);
+INSERT INTO HeroiEquipe(id_heroi, cod_equipe) VALUES(7,2);
+INSERT INTO HeroiEquipe(id_heroi, cod_equipe) VALUES(8,2);
+INSERT INTO HeroiEquipe(id_heroi, cod_equipe) VALUES(9,2);
+INSERT INTO HeroiEquipe(id_heroi, cod_equipe) VALUES(10,2);
+INSERT INTO HeroiEquipe(id_heroi, cod_equipe) VALUES(11,2);
+INSERT INTO HeroiEquipe(id_heroi, cod_equipe) VALUES(12,1);
+
+
+-- ALL Avengers
+-- SELECT h.nome FROM Herois h, HeroiEquipe he, Equipes e
+-- WHERE h.id_heroi = he.id_heroi AND he.cod_equipe = e.codigo AND e.nome = "Avengers";
