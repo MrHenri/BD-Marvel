@@ -80,7 +80,7 @@ CREATE TABLE Vitimas(
     heroi VARCHAR(80) NOT NULL,
     vilao VARCHAR(20) NOT NULL,
     dia DATE NOT NULL,
-    cpf VARCHAR(12) PRIMARY KEY,
+    cpf VARCHAR(14) PRIMARY KEY,
     FOREIGN KEY (heroi, vilao, dia, localizacao),
     REFERENCES Combates(heroi, vilao, dia, localizacao)
 );
