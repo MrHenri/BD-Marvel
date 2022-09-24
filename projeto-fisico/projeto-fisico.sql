@@ -52,7 +52,7 @@ CREATE TABLE HeroiEquipe (
     FOREIGN KEY (equipe) REFERENCES Equipes(equipe)
 );
 
-CREATE TABLE Bases_De_Operacao (
+CREATE TABLE Bases_De_Operacoes (
    base VARCHAR(80),
    chefe VARCHAR(80),
    equipe VARCHAR(80),
