@@ -52,12 +52,13 @@ CREATE TABLE HeroiEquipe (
     FOREIGN KEY (equipe) REFERENCES Equipes(equipe)
 );
 
--- CREATE TABLE Bases_De_Operacao (
---     numero int AUTO_INCREMENT,
---     equipe int,
---     PRIMARY KEY (numero, equipe),
---     FOREIGN KEY (equipe) REFERENCES Equipes(codigo)
--- );
+CREATE TABLE Bases_De_Operacao (
+   base VARCHAR(80),
+   chefe VARCHAR(80),
+   equipe VARCHAR(80),
+   PRIMARY KEY (base, equipe),
+   FOREIGN KEY (equipe) REFERENCES Equipes(equipe)
+);
 
 CREATE TABLE Viloes (
 	vilao VARCHAR(80) PRIMARY KEY
@@ -76,7 +77,7 @@ CREATE TABLE Combates(
 
 CREATE TABLE Vitimas(
     localizacao VARCHAR(80) NOT NULL,
-    heroi INT NOT NULL,
+    heroi VARCHAR(80) NOT NULL,
     vilao VARCHAR(20) NOT NULL,
     dia DATE NOT NULL,
     cpf VARCHAR(12) PRIMARY KEY,
