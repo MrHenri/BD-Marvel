@@ -69,3 +69,14 @@ BEGIN
         DELETE FROM Comuns WHERE heroi = :NEW.heroi;
     END IF;
 END;
+
+-- after update trigger for Herois
+CREATE OR REPLACE TRIGGER update_heroi
+AFTER UPDATE
+OF estado ON Herois
+FOR EACH ROW
+BEGIN
+    IF :New.estado = 'morto' THEN
+        DELETE FROM HeroiEquipe WHERE heroi = :NEW.heroi;
+    END IF;
+END;

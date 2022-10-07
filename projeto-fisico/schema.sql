@@ -1,6 +1,6 @@
 CREATE TABLE Herois(
     heroi VARCHAR(80),
-    estado VARCHAR(12) DEFAULT 'Vivo',
+    estado VARCHAR(12) DEFAULT 'vivo',
     mentor VARCHAR(80),
     CONSTRAINT pk_heroi PRIMARY KEY (heroi),
     CONSTRAINT fk_mentor FOREIGN KEY (mentor) REFERENCES Herois(heroi) ON DELETE SET NULL
@@ -84,7 +84,7 @@ CREATE TABLE Combates(
 );
 
 CREATE TABLE Vitimas(
-    cpf VARCHAR(14),
+    cpf VARCHAR(4),
     localizacao VARCHAR(80) NOT NULL,
     heroi VARCHAR(80) NOT NULL,
     vilao VARCHAR(20) NOT NULL,
@@ -92,4 +92,4 @@ CREATE TABLE Vitimas(
     CONSTRAINT pk_vitimas PRIMARY KEY (cpf),
     CONSTRAINT fk_combate_vitima FOREIGN KEY (heroi, vilao, dia, localizacao)
     REFERENCES Combates(heroi, vilao, dia, localizacao) ON DELETE CASCADE
-);
+)

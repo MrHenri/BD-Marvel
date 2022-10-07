@@ -13,6 +13,8 @@ INSERT INTO Herois(heroi) VALUES('Rocket Racoon');
 INSERT INTO Herois(heroi, mentor) VALUES('Spider Man', 'Iron Man');
 INSERT INTO Herois(heroi, mentor) VALUES('Winter Soldier', 'Captain America');
 INSERT INTO Herois(heroi, mentor) VALUES('Falcon', 'Captain America');
+INSERT INTO Viloes(vilao) VALUES('Thanos');
+INSERT INTO Viloes(vilao) VALUES('Loki');
 
 INSERT INTO Poderes(heroi, poder, grau) VALUES('Hulk', 'Super Força', 5);
 INSERT INTO Poderes(heroi, poder, grau) VALUES('Hulk', 'Regeneração', 5);
@@ -29,7 +31,6 @@ INSERT INTO Feitos(heroi, feito_realizado) VALUES('Thor', 'Lutou contra a invas�
 INSERT INTO Equipes(equipe) VALUES ('Avengers');
 INSERT INTO Equipes(equipe) VALUES ('Guardians Of The Galaxy');
 
-
 INSERT INTO HeroiEquipe(heroi, equipe) VALUES('Iron Man','Avengers');
 INSERT INTO HeroiEquipe(heroi, equipe) VALUES('Captain America','Avengers');
 INSERT INTO HeroiEquipe(heroi, equipe) VALUES('Hulk','Avengers');
@@ -43,4 +44,6 @@ INSERT INTO HeroiEquipe(heroi, equipe) VALUES('Drax','Guardians Of The Galaxy');
 INSERT INTO HeroiEquipe(heroi, equipe) VALUES('Rocket Racoon','Guardians Of The Galaxy');
 INSERT INTO HeroiEquipe(heroi, equipe) VALUES('Spider Man','Avengers');
 
-INSERT INTO Localizacoes(regiao, latitude, longitude) VALUES('Nova York', 40.894112553018076, -73.97263907468503);
+INSERT INTO Localizacoes(regiao, latitude, longitude) VALUES('New York', 40.894112553018076, -73.97263907468503);
+
+INSERT INTO Combates VALUES('New York', 'Iron Man', 'Loki', TO_DATE('12/03/2008','DD/MM/YYYY'));
