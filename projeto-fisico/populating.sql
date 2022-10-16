@@ -13,6 +13,19 @@ INSERT INTO Herois(heroi) VALUES('Drax');
 INSERT INTO Herois(heroi) VALUES('Rocket Racoon');
 INSERT INTO Herois(heroi) VALUES('Professor Xavier');
 
+--Artefatos
+
+INSERT INTO Artefatos(artefato,heroi) VALUES('Armas de fogo', 'Nick Fury');
+INSERT INTO Artefatos(artefato,heroi) VALUES('Armadura de ferro', 'Iron Man');
+INSERT INTO Artefatos(artefato,heroi) VALUES('Escudo', 'Captain America' );
+INSERT INTO Artefatos(artefato,heroi) VALUES('Pistolas', 'Black Widow' );
+INSERT INTO Artefatos(artefato,heroi) VALUES('Arco e flechas', 'hawkeye' );
+INSERT INTO Artefatos(artefato,heroi) VALUES('Mjolnir', 'Thor' );
+INSERT INTO Artefatos(artefato,heroi) VALUES('Capacete', 'Star Lord' );
+INSERT INTO Artefatos(artefato,heroi) VALUES('Espada Godslayer', 'Gamora' );
+INSERT INTO Artefatos(artefato,heroi) VALUES('Facas', 'Drax');
+INSERT INTO Artefatos(artefato,heroi) VALUES('Canhao laser', 'Rocket Racoon');
+
 
 --Mentora
 INSERT INTO Herois(heroi, mentor) VALUES('Spider Man', 'Iron Man');
