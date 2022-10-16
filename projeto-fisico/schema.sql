@@ -1,6 +1,6 @@
 CREATE TABLE Herois(
     heroi VARCHAR(80),
-    estado VARCHAR(12) DEFAULT 'vivo',
+    estado VARCHAR(12) DEFAULT 'vivo' CHECK (estado IN ('vivo', 'morto')),
     mentor VARCHAR(80),
     CONSTRAINT pk_heroi PRIMARY KEY (heroi),
     CONSTRAINT fk_mentor FOREIGN KEY (mentor) REFERENCES Herois(heroi) ON DELETE SET NULL
@@ -21,12 +21,19 @@ CREATE TABLE Comuns (
 );
 
 CREATE TABLE Poderes (
-	grau INT NOT NULL CHECK (grau BETWEEN 0 AND 5),
     poder VARCHAR(80),
+	grau INT CHECK (grau BETWEEN 0 AND 5),
     descricao VARCHAR(280),
-    heroi VARCHAR(80) NOT NULL,
-    CONSTRAINT pk_poder PRIMARY KEY (poder),
-    CONSTRAINT fk_heroi_poder FOREIGN KEY (heroi) REFERENCES Herois(heroi) ON DELETE CASCADE
+    CONSTRAINT pk_poder PRIMARY KEY (poder, grau)
+);
+
+CREATE TABLE Superes (
+    heroi VARCHAR(80),
+    poder VARCHAR(80),
+    grau INT NOT NULL,
+    CONSTRAINT pk_super PRIMARY KEY (heroi, poder),
+    CONSTRAINT fk_heroi_super FOREIGN KEY (heroi) REFERENCES Herois (heroi) ON DELETE CASCADE,
+    CONSTRAINT fk_heroi_poder FOREIGN KEY (poder, grau) REFERENCES Poderes (poder, grau) ON DELETE CASCADE
 );
 
 
