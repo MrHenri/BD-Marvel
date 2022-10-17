@@ -12,6 +12,8 @@ INSERT INTO Herois(heroi) VALUES('Groot');
 INSERT INTO Herois(heroi) VALUES('Drax');
 INSERT INTO Herois(heroi) VALUES('Rocket Racoon');
 INSERT INTO Herois(heroi) VALUES('Professor Xavier');
+INSERT INTO Herois(heroi) VALUES('Doutor Estranho');
+INSERT INTO Herois(heroi) VALUES('Bill Raio Beta')
 
 --Artefatos
 
@@ -25,6 +27,9 @@ INSERT INTO Artefatos(artefato,heroi) VALUES('Capacete', 'Star Lord' );
 INSERT INTO Artefatos(artefato,heroi) VALUES('Espada Godslayer', 'Gamora' );
 INSERT INTO Artefatos(artefato,heroi) VALUES('Facas', 'Drax');
 INSERT INTO Artefatos(artefato,heroi) VALUES('Canhao laser', 'Rocket Racoon');
+INSERT INTO Artefatos(artefato,heroi) VALUES('Olho de Agamento', 'Doutor estranho')
+INSERT INTO Artefatos(artefato) VALUES('Darkhold')
+
 
 
 --Mentora
@@ -36,6 +41,8 @@ INSERT INTO Herois(heroi, mentor) VALUES('Tempestade', 'Professor Xavier');
 INSERT INTO Herois(heroi, mentor) VALUES('Ciclope', 'Professor Xavier');
 INSERT INTO Herois(heroi, mentor) VALUES('Noturno', 'Professor Xavier');
 INSERT INTO Herois(heroi, mentor) VALUES('Colosso', 'Professor Xavier');
+INSERT INTO Herois(heroi, mentor) VALUES('Thor', 'Bill Raio Beta');
+
 
 
 --Comuns
@@ -79,7 +86,9 @@ INSERT INTO Poderes VALUES('Telepatia', 5, 'Consegue conversar mentalmente com a
 INSERT INTO Poderes VALUES('Olhos Laser', 3, 'Consegue emitir raios laser dos olhos, podendo alcançar extremas temperaturas');
 INSERT INTO Poderes VALUES('Teleporte', 4, 'Consegue Mudar sua posição e ou de aliados de forma instantânea');
 INSERT INTO Poderes VALUES('Invulnerabilidade', 3, 'Consegue aguentar grandes quantidades de dano sem se ferir');
+INSERT INTO Poderes VALUES('Magia', 5, 'Magia de nível mago supremo');
 
+--Superes
 
 INSERT INTO Superes VALUES ('Hulk', 'Super Força', 5);
 INSERT INTO Superes VALUES ('Hulk', 'Regeneração', 5);
@@ -98,6 +107,7 @@ INSERT INTO Superes VALUES ('Ciclope', 'Olhos Laser', 3);
 INSERT INTO Superes VALUES ('Noturno', 'Teleporte', 4);
 INSERT INTO Superes VALUES ('Colosso', 'Super Força', 3);
 INSERT INTO Superes VALUES ('Colosso', 'Invulnerabilidade', 3);
+INSERT INTO Superes Values ('Bill Raio beta', 'Raios', 3)
 
 --Feitos
 INSERT INTO Feitos(heroi, feito_realizado) VALUES('Captain America', 'Veterano da Segunda Guerra Mundial');
@@ -144,6 +154,10 @@ INSERT INTO Localizacoes(regiao, latitude, longitude) VALUES('New York', 40.8941
 INSERT INTO Localizacoes(regiao, latitude, longitude) VALUES('Washington D.C', 38.9041, -77.0171);
 INSERT INTO Localizacoes(regiao, latitude, longitude) VALUES('Wakanda', 4.6427869, 35.906449);
 
+--Base de operações
+INSERT INTO Bases_De_Operacoes(base, chefe, equipe) VALUES('Torre dos Vingadores', 'Captain America', 'Avengers');
+
+
 
 --Combates
 INSERT INTO Combates VALUES('New York', 'Iron Man', 'Loki', TO_DATE('12/03/2008','DD/MM/YYYY'));
@@ -163,3 +177,8 @@ INSERT INTO Combates VALUES('Wakanda', 'Rocket Racoon', 'Thanos', TO_DATE('26/04
 INSERT INTO Combates VALUES('Wakanda', 'Groot', 'Thanos', TO_DATE('26/04/2018','DD/MM/YYYY'));
 INSERT INTO Combates VALUES('Wakanda', 'Drax', 'Thanos', TO_DATE('26/04/2018','DD/MM/YYYY'));
 INSERT INTO Combates VALUES('Wakanda', 'Gamora', 'Thanos', TO_DATE('26/04/2018','DD/MM/YYYY'));
+
+--Vitimas
+INSERT INTO Vitimas(cpf, localizacao, heroi, vilao, dia) VALUES('3214', 'New York', 'Iron Man', 'Loki', TO_DATE('12/03/2008','DD/MM/YYYY'));
+INSERT INTO Vitimas(cpf, localizacao, heroi, vilao, dia) VALUES('2222', 'Washington D.C', 'Wolverine', 'Magneto', TO_DATE('26/05/2006','DD/MM/YYYY'));
+INSERT INTO Vitimas(cpf, localizacao, heroi, vilao, dia) VALUES('1321', 'Wakanda', 'Groot', 'Thanos',TO_DATE('26/04/2018','DD/MM/YYYY'));
