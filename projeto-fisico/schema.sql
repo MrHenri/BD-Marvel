@@ -99,4 +99,4 @@ CREATE TABLE Vitimas(
     CONSTRAINT pk_vitimas PRIMARY KEY (cpf),
     CONSTRAINT fk_combate_vitima FOREIGN KEY (heroi, vilao, dia, localizacao)
     REFERENCES Combates(heroi, vilao, dia, localizacao) ON DELETE CASCADE
-)
+);

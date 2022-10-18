@@ -1,76 +1,74 @@
--- GROUP BY HAVING (Listar poderes que são compartilhados por mais de 1 herói) -- 
+-- GROUP BY HAVING (Listar poderes que são compartilhados por mais de 1 herói) --
 SELECT COUNT(heroi) AS quantheroi, poder, grau
 FROM superes
 GROUP BY poder, grau
 HAVING COUNT(heroi) >= 2;
 
---INNER JOIN OLD SCHOOL (Listar heróis com equipes)-- 
+--INNER JOIN OLD SCHOOL (Listar heróis com equipes)--
 SELECT h.heroi, he.equipe
 FROM Herois h, HeroiEquipe he
 WHERE h.heroi = he.heroi;
 
---INNER JOIN NEW SCHOOL (Listar heróis e suas detemrinadas equipes caso possuam) --  
-SELECT h.heroi, h.estado, he.equipe
+--INNER JOIN NEW SCHOOL (Listar heróis e suas detemrinadas equipes caso possuam) --
+SELECT h.heroi, he.equipe
 FROM Herois h
 INNER JOIN heroiequipe he
 ON h.heroi = he.heroi;
 
 -- LEFT OUTTER JOIN (Listar todos os hérois e os artefatos dos que possuem) --
 SELECT h.heroi, a.artefato
-FROM herois H
-LEFT JOIN artefatos A
+FROM Herois h
+LEFT JOIN artefatos a
 ON h.heroi = a.heroi;
 
 -- SEMI JOIN (Listar todos os heroies que participaram de um combate) --
 SELECT h.heroi
-FROM  herois h
-WHERE EXISTS 
-    (SELECT c.dia
-    FROM combates c
-    WHERE h.heroi = c.heroi)
+FROM Herois h
+WHERE EXISTS
+    (SELECT dia
+    FROM Combates c
+    WHERE h.heroi = c.heroi);
 
--- ANTI JOIN (Listar todos os herois sem equipes) -- 
-SELECT H.heroi
-FROM herois h
-WHERE h.heroi NOT IN
-    (SELECT he.heroi
-    FROM heroiequipe he);
+-- ANTI JOIN (Listar todos os Herois sem equipes) --
+SELECT heroi
+FROM Herois
+WHERE heroi NOT IN
+    (SELECT heroi
+    FROM heroiequipe);
 
 -- SUBCONSULTA TIPO ESCALAR (Listar heróis que possuem algum poder com grau acima da média) --
-SELECT DISTINCT heroi
-FROM superes
-WHERE grau >
-    (SELECT AVG(grau)
-    FROM superes);
+SELECT heroi, SUM(grau)
+FROM Superes
+GROUP BY heroi
+HAVING SUM(grau) > (SELECT AVG(SUM(grau))
+                    FROM Superes
+                    GROUP BY heroi);
 
--- SUBCONSULTA TIPO LINHA 
-SELECT HEROI
-FROM SUPERES 
-WHERE (GRAU, PODER) = 
-    (SELECT GRAU, PODER
-    FROM SUPERES
-    WHERE HEROI = 'Thor');
-    
+-- SUBCONSULTA TIPO LINHA (Listar heróis que possuem poder de Regeneração com grau 5)
+SELECT heroi
+FROM Superes
+WHERE (grau, poder) =
+    (SELECT grau, poder
+    FROM Poderes
+    WHERE poder = 'Regeneração' AND grau = 5);
+
 -- SUBCONSULTA DO TIPO TABELA (Listar heróis que não participaram de um combate) --
-SELECT HEROI
-FROM HEROIS
-WHERE HEROI NOT IN
-    (SELECT HEROI
-    FROM COMBATES)
+SELECT heroi
+FROM Herois
+WHERE heroi NOT IN
+    (SELECT heroi
+    FROM Combates);
 
 -- SUBCONSULTA DO TIPO TABELA 2 (Listar heróis que são chefes) --
-
-
-SELECT H.HEROI 
-FROM HEROIS H
-WHERE H.HEROI IN
-    (SELECT B.CHEFE
-    FROM BASES_DE_OPERACOES B)
+SELECT heroi
+FROM Herois
+WHERE heroi IN
+    (SELECT chefe
+    FROM Bases_De_Operacoes);
 
 -- OPERAÇÃO DE CONJUNTO -- (Juntar heróis e artefatos em uma tabela)
-
-SELECT H.HEROI
-FROM HEROIS H
+SELECT heroi
+FROM Herois
 UNION
-SELECT A.ARTEFATO
-FROM ARTEFATOS A
+SELECT Artefato
+FROM Artefatos;

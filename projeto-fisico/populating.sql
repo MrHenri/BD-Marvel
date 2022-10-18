@@ -5,7 +5,6 @@ INSERT INTO Herois(heroi) VALUES('Captain America');
 INSERT INTO Herois(heroi) VALUES('Hulk');
 INSERT INTO Herois(heroi) VALUES('Black Widow');
 INSERT INTO Herois(heroi) VALUES('hawkeye');
-INSERT INTO Herois(heroi) VALUES('Thor');
 INSERT INTO Herois(heroi) VALUES('Star Lord');
 INSERT INTO Herois(heroi) VALUES('Gamora');
 INSERT INTO Herois(heroi) VALUES('Groot');
@@ -13,24 +12,7 @@ INSERT INTO Herois(heroi) VALUES('Drax');
 INSERT INTO Herois(heroi) VALUES('Rocket Racoon');
 INSERT INTO Herois(heroi) VALUES('Professor Xavier');
 INSERT INTO Herois(heroi) VALUES('Doutor Estranho');
-INSERT INTO Herois(heroi) VALUES('Bill Raio Beta')
-
---Artefatos
-
-INSERT INTO Artefatos(artefato,heroi) VALUES('Armas de fogo', 'Nick Fury');
-INSERT INTO Artefatos(artefato,heroi) VALUES('Armadura de ferro', 'Iron Man');
-INSERT INTO Artefatos(artefato,heroi) VALUES('Escudo', 'Captain America' );
-INSERT INTO Artefatos(artefato,heroi) VALUES('Pistolas', 'Black Widow' );
-INSERT INTO Artefatos(artefato,heroi) VALUES('Arco e flechas', 'hawkeye' );
-INSERT INTO Artefatos(artefato,heroi) VALUES('Mjolnir', 'Thor' );
-INSERT INTO Artefatos(artefato,heroi) VALUES('Capacete', 'Star Lord' );
-INSERT INTO Artefatos(artefato,heroi) VALUES('Espada Godslayer', 'Gamora' );
-INSERT INTO Artefatos(artefato,heroi) VALUES('Facas', 'Drax');
-INSERT INTO Artefatos(artefato,heroi) VALUES('Canhao laser', 'Rocket Racoon');
-INSERT INTO Artefatos(artefato,heroi) VALUES('Olho de Agamento', 'Doutor estranho')
-INSERT INTO Artefatos(artefato) VALUES('Darkhold')
-
-
+INSERT INTO Herois(heroi) VALUES('Bill Raio Beta');
 
 --Mentora
 INSERT INTO Herois(heroi, mentor) VALUES('Spider Man', 'Iron Man');
@@ -43,17 +25,27 @@ INSERT INTO Herois(heroi, mentor) VALUES('Noturno', 'Professor Xavier');
 INSERT INTO Herois(heroi, mentor) VALUES('Colosso', 'Professor Xavier');
 INSERT INTO Herois(heroi, mentor) VALUES('Thor', 'Bill Raio Beta');
 
-
+--Artefatos
+INSERT INTO Artefatos(artefato,heroi) VALUES('Armas de fogo', 'Nick Fury');
+INSERT INTO Artefatos(artefato,heroi) VALUES('Armadura de ferro', 'Iron Man');
+INSERT INTO Artefatos(artefato,heroi) VALUES('Escudo', 'Captain America' );
+INSERT INTO Artefatos(artefato,heroi) VALUES('Pistolas', 'Black Widow' );
+INSERT INTO Artefatos(artefato,heroi) VALUES('Arco e flechas', 'hawkeye' );
+INSERT INTO Artefatos(artefato,heroi) VALUES('Mjolnir', 'Thor' );
+INSERT INTO Artefatos(artefato,heroi) VALUES('Capacete', 'Star Lord' );
+INSERT INTO Artefatos(artefato,heroi) VALUES('Espada Godslayer', 'Gamora' );
+INSERT INTO Artefatos(artefato,heroi) VALUES('Facas', 'Drax');
+INSERT INTO Artefatos(artefato,heroi) VALUES('Canhao laser', 'Rocket Racoon');
+INSERT INTO Artefatos(artefato,heroi) VALUES('Olho de Agamento', 'Doutor Estranho');
+INSERT INTO Artefatos(artefato) VALUES('Darkhold');
 
 --Comuns
-INSERT INTO Comuns(heroi, especialidade) VALUES('hawkeye', 'arquearia');
-INSERT INTO Comuns(heroi, especialidade) VALUES('Nick Fury', 'Liderança');
-INSERT INTO Comuns(heroi, especialidade) VALUES('Black Widow', 'Espionagem');
-INSERT INTO Comuns(heroi, especialidade) VALUES('Star Lord', 'Roubo');
-INSERT INTO Comuns(heroi, especialidade) VALUES('Gamora', 'Combate');
-INSERT INTO Comuns(heroi, especialidade) VALUES('Drax', 'Combate');
-INSERT INTO Comuns(heroi, especialidade) VALUES('Rocket Racoon', 'Tecnologia');
-INSERT INTO Comuns(heroi, especialidade) VALUES('Iron Man', 'Tecnologia');
+UPDATE Comuns SET especialidade = 'arquearia' WHERE heroi = 'hawkeye';
+UPDATE Comuns SET especialidade = 'Liderança' WHERE heroi = 'Nick Fury';
+UPDATE Comuns SET especialidade = 'Espionagem' WHERE heroi = 'Black Widow';
+UPDATE Comuns SET especialidade = 'Roubo' WHERE heroi = 'Star Lord';
+UPDATE Comuns SET especialidade = 'Combate' WHERE heroi IN ('Gamora', 'Drax');
+UPDATE Comuns SET especialidade = 'Tecnologia' WHERE heroi IN ('Rocket Racoon', 'Iron Man');
 
 --Vilões
 INSERT INTO Viloes(vilao) VALUES('Thanos');
@@ -64,7 +56,6 @@ INSERT INTO Viloes(vilao) VALUES('Caveira Vermelha');
 INSERT INTO Viloes(vilao) VALUES('Ultron');
 INSERT INTO Viloes(vilao) VALUES('Abutre');
 INSERT INTO Viloes(vilao) VALUES('Misterio');
-
 
 --Poderes
 INSERT INTO Poderes VALUES('Super Força', 1, 'Consede força sobre humana');
@@ -89,7 +80,6 @@ INSERT INTO Poderes VALUES('Invulnerabilidade', 3, 'Consegue aguentar grandes qu
 INSERT INTO Poderes VALUES('Magia', 5, 'Magia de nível mago supremo');
 
 --Superes
-
 INSERT INTO Superes VALUES ('Hulk', 'Super Força', 5);
 INSERT INTO Superes VALUES ('Hulk', 'Regeneração', 5);
 INSERT INTO Superes VALUES ('Thor', 'Raios', 3);
@@ -107,7 +97,8 @@ INSERT INTO Superes VALUES ('Ciclope', 'Olhos Laser', 3);
 INSERT INTO Superes VALUES ('Noturno', 'Teleporte', 4);
 INSERT INTO Superes VALUES ('Colosso', 'Super Força', 3);
 INSERT INTO Superes VALUES ('Colosso', 'Invulnerabilidade', 3);
-INSERT INTO Superes Values ('Bill Raio beta', 'Raios', 3)
+INSERT INTO Superes Values ('Bill Raio Beta', 'Raios', 3);
+INSERT INTO Superes Values ('Doutor Estranho', 'Magia', 5);
 
 --Feitos
 INSERT INTO Feitos(heroi, feito_realizado) VALUES('Captain America', 'Veterano da Segunda Guerra Mundial');
@@ -156,8 +147,6 @@ INSERT INTO Localizacoes(regiao, latitude, longitude) VALUES('Wakanda', 4.642786
 
 --Base de operações
 INSERT INTO Bases_De_Operacoes(base, chefe, equipe) VALUES('Torre dos Vingadores', 'Captain America', 'Avengers');
-
-
 
 --Combates
 INSERT INTO Combates VALUES('New York', 'Iron Man', 'Loki', TO_DATE('12/03/2008','DD/MM/YYYY'));
